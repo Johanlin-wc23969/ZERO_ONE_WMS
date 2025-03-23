@@ -1,210 +1,117 @@
-# **ZERO_ONE_WMS**
 
 
-Reference for the concept of `WMS`:
+# **ZERO_ONE 智能仓储管理系统**
 
-- https://en.wikipedia.org/wiki/Warehouse_management_system
-- https://baike.baidu.com/item/%E4%BB%93%E5%BA%93%E7%AE%A1%E7%90%86/9163356
+仓库管理系统（WMS）概念参考：
 
-
-## **Project Overview**
-
-A Warehouse Management System (`WMS`) is a software solution that provides visibility into an enterprise's entire inventory and manages fulfillment operations across the supply chain, from distribution centers to store shelves. By coordinating and optimizing resource utilization and material flow, it helps businesses maximize labor, space, and invested equipment. It is designed to meet the demands of the entire global supply chain, including distribution, manufacturing, asset-intensive, and service-based businesses.
-
-In today's dynamic, omnichannel fulfillment economy, online consumers expect to purchase, fulfill orders, and return products anytime and anywhere. This requires businesses to use appropriate warehouse management software to enhance fulfillment capabilities and quickly respond to customer demands.
-
-`zero-one-10wms` is designed to help you meet the future needs of the supply chain by aligning inventory management and fulfillment services with modern purchasing methods. It provides real-time visibility into your entire inventory. As long as there is internet access, users can track inventory in real time via smartphones and browsers.
+- [Wikipedia: Warehouse Management System](https://en.wikipedia.org/wiki/Warehouse_management_system)  
+- [百度百科：仓库管理系统](https://baike.baidu.com/item/%E4%BB%93%E5%BA%93%E7%AE%A1%E7%90%86/9163356)
 
 
-## **System Architecture**
+# **项目简介（Project Overview）**
 
-The project is built on the `Spring Cloud Alibaba` ecosystem, utilizing `MySQL` for data persistence, and the front end is developed with the `Vue3` ecosystem and `Element Plus UI` framework. The project also supports `C++` microservice development and integration while using `Jenkins` for `CD/CI`.
+**ZERO_ONE 智能仓储管理系统** 是一款面向现代供应链场景设计的 **仓库管理系统**，致力于帮助企业实现从仓储到配送全链路的库存可视化管理与订单履约优化。
 
-![architecture](./documents/00、preview-pic/architecture.jpg)
+该系统通过协调资源调度与物料流动，提升空间利用率与设备投资回报率，广泛适用于分销、制造、重资产及服务型业务。
 
+在当前动态、多渠道（Omnichannel）的电商环境中，消费者期待“随时下单、随地履约、自由退货”。ZERO_ONE_WMS 旨在通过现代化的软件架构，响应此类挑战，提供以下能力：
 
-## **Project Structure**
-
-> `zero-one-10wms`
->
-> > `.gitignore` -- Git ignore file
-> >
-> > `README.md` -- Project README file
-> >
-> > `documents` -- Documentation resources (environment setup, coding standards, project requirements, etc.)
-> >
-> > `wms-java` -- Main Java project
-> >
-> > `wms-cpp` -- Main C++ project
-> >
-> > `wms-frontend` -- Main frontend project
+- 实时库存追踪（Real-time Inventory Tracking）
+- 全链路可视化（End-to-End Visibility）
+- 支持手机 & 浏览器远程访问
+- 快速响应客户订单变更
 
 
-## **Software Architecture**
+# **系统架构**
 
-### **Java Tech Stack**
+本系统基于 `Spring Cloud Alibaba` 微服务生态构建，后端采用 `MySQL` 进行数据持久化，前端基于 `Vue3 + Element Plus` 实现响应式界面。同时支持 `C++` 微服务模块集成，并通过 `Jenkins` 实现自动化 CI/CD 部署。
 
-#### **Core Backend Tech Stack**
-
-Version compatibility reference:
-
-https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E
-
-| Technology               | Description                 | Version         | Notes |
-|--------------------------|----------------------------|----------------|-------|
-| `Spring`                 | Container                   | 5.2.15         | [Spring](https://spring.io/) |
-| `Spring Web MVC`         | MVC framework              | 5.2.15         | [Spring Web MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html) |
-| `Beanvalidation`         | Entity attribute validation | 2.0.2          | [Beanvalidation](https://beanvalidation.org/2.0-jsr380/) |
-| `MyBatis`                | ORM framework              | 3.5.7          | [MyBatis](http://www.mybatis.org/mybatis-3/zh/index.html) |
-| `MyBatis Plus`           | MyBatis enhancement tool    | 3.4.3.4        | [MyBatis Plus](https://baomidou.com/) |
-| `MyBatis Plus Generator` | Code generator             | 3.5.1          | [MyBatis Plus Generator](https://github.com/baomidou/generator) |
-| `Druid`                  | Database connection pool   | 1.2.8          | [Druid](https://github.com/alibaba/druid) |
-| `Lombok`                 | Java entity helper tool    | 1.18.20        | [Lombok](https://github.com/rzwitserloot/lombok) |
-| `Hutool`                 | Java utility library       | 5.8.3          | [Hutool](https://hutool.cn/docs/#/) |
-| `Knife4j`                | API documentation tool     | 2.0.8          | [Knife4j](https://gitee.com/xiaoym/knife4j) |
-| `Nimbus JOSE JWT`        | JSON Web Token (JWT)       | 8.21           | [Nimbus JWT](https://bitbucket.org/connect2id/nimbus-jose-jwt/wiki/Home) |
-| `Spring Boot`            | Spring Boot framework      | 2.3.12         | [Spring Boot](https://spring.io/projects/spring-boot) |
-| `Spring Cloud`           | Microservices framework    | `Hoxton.SR12`  | [Spring Cloud](https://spring.io/projects/spring-cloud) |
-| `Spring Cloud Alibaba`   | Alibaba microservices tools | 2.2.8         | [Spring Cloud Alibaba](https://github.com/alibaba/spring-cloud-alibaba/wiki) |
-| `Spring Cloud Security`  | Authentication & Authorization | 2.2.5      | [Spring Cloud Security](https://spring.io/projects/spring-cloud-security) |
-| `Sentinel`               | Distributed system protection | 1.8.4        | [Sentinel](https://sentinelguard.io/zh-cn/) |
-| `Seata`                  | Distributed transaction solution | 1.5.1    | [Seata](https://seata.io/zh-cn/) |
-| `MapStruct`              | Code generator for entity mapping | `1.5.3.Final` | [MapStruct](https://mapstruct.org/) |
-
-#### **Extended Backend Tech Stack**  
-
-| Technology                | Description               | Version | Notes |
-|---------------------------|--------------------------|---------|-------|
-| `EasyExcel`               | Excel report tool        | 3.0.5   | [EasyExcel](https://github.com/alibaba/easyexcel) |
-| `RocketMQ`                | Message queue middleware | 4.9.3   | [RocketMQ](https://github.com/alibaba/spring-cloud-alibaba/wiki/RocketMQ) |
-| `WebSocket`               | Real-time communication  | 5.2.15  | [WebSocket](https://docs.spring.io/spring-framework/docs/5.3.15/reference/html/web.html#websocket) |
-| `FastDFS`                 | Distributed file system  | 2.0.1   | [FastDFS](https://gitee.com/zero-awei/fastdfs-spring-boot-starter) |
-| `Elasticsearch`           | Distributed search engine | 7.6.2  | [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/index.html) |
-| `LogStash`                | Log collection tool      | 7.6.2   | [LogStash](https://www.elastic.co/guide/en/logstash/7.6/index.html) |
-| `Kibana`                  | Log visualization tool   | 7.6.2   | [Kibana](https://www.elastic.co/guide/en/kibana/7.6/index.html) |
-| `logstash-logback-encoder` | Logstash log collection plugin | 6.6 | [Logstash Logback Encoder](https://github.com/logfellow/logstash-logback-encoder/tree/logstash-logback-encoder-6.6) |
-| `spring-boot-admin`       | Service monitoring panel | 2.3.1   | [Spring Boot Admin](https://github.com/codecentric/spring-boot-admin) |
-| `EasyEs`                  | Elasticsearch ORM framework | 1.0.3  | [EasyEs](https://www.easy-es.cn/) |
-| `spring-data-mongodb`     | Spring MongoDB integration | 3.0.9  | [Spring Data MongoDB](https://docs.spring.io/spring-data/mongodb/docs/3.0.9.RELEASE/reference/html/#preface) |
-| `AJ-Captcha`              | Captcha plugin          | 1.3.0   | [AJ-Captcha](https://ajcaptcha.beliefteam.cn/captcha-doc/) |
-| `x-easypdf`               | PDF plugin              | 2.12.2  | [x-easypdf](https://gitee.com/dromara/x-easypdf) |
+![系统架构图](./documents/00、preview-pic/architecture.jpg)
 
 
-### `Frontend` Tech Stack
+# **项目结构（Project Structure）**
 
-#### Core Tech Stack
-
-| Technology     | Description             | Version  | Notes |
-|---------------|-------------------------|----------|-------|
-| `Vue`         | Frontend framework       | `v3.x`   | [Vue.js](https://v3.vuejs.org/) |
-| `Vue-Router`  | Routing framework        | `v4.x`   | [Vue Router](https://next.router.vuejs.org/) |
-| `Pinia`       | Global state management  | `v2.x`   | [Pinia](https://pinia.vuejs.org/) |
-| `Axios`       | HTTP middleware          | v1.7.2   | [Axios](https://github.com/axios/axios) |
-| `Element-Plus` | UI framework             | `latest` | [Element Plus](https://element-plus.gitee.io/zh-CN/) |
-
-#### **Extended Tech Stack**  
-
-| Technology              | Description         | Version  | Notes |
-|-------------------------|---------------------|----------|-------|
-| `ECharts`               | Charting framework  | `latest` | [ECharts](https://echarts.apache.org/handbook/zh/get-started/) |
-| `AJ-Captcha`            | Captcha plugin     | 1.3.0    | [AJ-Captcha](https://ajcaptcha.beliefteam.cn/captcha-doc/) |
-| `SheetJS`               | Spreadsheet plugin  | 0.20.2   | [SheetJS](https://docs.sheetjs.com/docs/) |
-| `vue-plugin-hiprint`    | Printing plugin     | 0.0.56   | [Hiprint](https://gitee.com/CcSimple/vue-plugin-hiprint) |
-| `wangEditor`            | Rich text editor    | v5       | [wangEditor](https://www.wangeditor.com/v5/) |
-| `pdfobject`             | PDF preview plugin  | 2.3.0    | [PDFObject](https://github.com/pipwerks/PDFObject) |
-| `Vitest`                | Testing framework   | 1.6.0    | [Vitest](https://cn.vitest.dev/) |
+```bash
+zero-one-10wms
+├── .gitignore         # Git 忽略规则
+├── README.md          # 项目说明文档
+├── documents/         # 开发文档、环境配置、编码规范等
+├── wms-java/          # Java 微服务核心模块
+├── wms-cpp/           # C++ 后端服务模块
+└── wms-frontend/      # 前端 Vue3 项目
+```
 
 
-### `C++` Tech Stack
+# **软件技术栈（Tech Stack）**
 
-#### Core Backend Tech Stack
+#端技术栈（Java）
 
-| Technology | Description | Version | Notes |
-|------------|------------|---------|-------|
-| `oat++` | Web framework | `1.3.0` | https://github.com/oatpp/oatpp |
-| `MySQL Connector` | MySQL connection driver | 8.0.27 | https://dev.mysql.com/doc/connector-cpp/1.1/en/connector-cpp-apps.html |
-| `JWT` | JSON Web Token | v1.4 | https://opensourcelibs.com/lib/cpp-jwt |
-| `OpenSSL` | Open-source security protocol | `1.1.1L` | https://www.openssl.org/ |
+核心依赖包括：
 
-#### **Extended Backend Tech Stack**  
+- Spring Boot, Spring Cloud, Spring Web MVC, Spring Security
+- MyBatis & MyBatis-Plus
+- Druid 数据库连接池
+- Sentinel、Seata、RocketMQ、Nacos 等分布式组件
+- Swagger/Knife4j 接口文档
+- MapStruct、EasyExcel、Lombok 等开发加速工具
 
-| Technology   | Description                | Version  | Notes |
-|-------------|----------------------------|----------|-------|
-| `xlnt`      | Excel report tool          | 1.5.0    | [xlnt](https://github.com/tfussell/xlnt) |
-| `fastdfs`   | File storage client        | latest   | [FastDFS](https://gitee.com/fastdfs100) |
-| `yaml-cpp`  | YAML data parser           | 0.7.0    | [yaml-cpp](https://github.com/jbeder/yaml-cpp) |
-| `nacos`     | Nacos client               | `v1.1.0` | [Nacos SDK C++](https://github.com/nacos-group/nacos-sdk-cpp) |
-| `redis++`   | Redis connection client    | 1.3.2    | [redis-plus-plus](https://github.com/sewenew/redis-plus-plus) |
-| `rocketmq`  | RocketMQ client            | 2.1.0    | [RocketMQ C++](https://github.com/apache/rocketmq-client-cpp) |
-| `mongo`     | MongoDB client             | 3.6.5    | [MongoDB C++ Driver](https://www.mongodb.com/docs/drivers/cxx/) |
-| `libharu`   | PDF library                | 2.4.3    | [libharu](https://github.com/libharu/libharu/tree/v2.4.3) |
-| `zxing`     | Barcode & QR code generator | 2.1.0    | [zxing-cpp](https://github.com/zxing-cpp/zxing-cpp/tree/v2.1.0) |
+🔗 [详细版本对照 & 官网链接见原文](https://github.com/alibaba/spring-cloud-alibaba/wiki/版本说明)
 
 
+#前端技术栈（Frontend）
 
-## Environment Requirements
+- Vue 3 + Composition API
+- Vue Router 4 + Pinia 状态管理
+- Axios 通信中间件
+- Element Plus 组件库
+- Echarts 图表展示、SheetJS 报表导出
+- wangEditor 富文本编辑、PDFObject PDF 预览
+- 支持打印、验证码、Vitest 测试框架等插件集成
 
-### Development Tools
+---
 
-| Tool           | Description                | Version    | Notes |
-|---------------|----------------------------|------------|-------|
-| `Navicat`     | Database connection tool   | latest     | [Navicat](https://www.navicat.com.cn/) |
-| `RDM`         | Redis visualization tool   | latest     | [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager) / [AnotherRedisDesktopManager](https://gitee.com/qishibo/AnotherRedisDesktopManager) |
-| `PowerDesigner` | Database design tool     | 16.6       | [PowerDesigner](http://powerdesigner.de/) |
-| `Axure`       | Prototype design tool      | 9          | [Axure](https://www.axure.com/) |
-| `MindMaster`  | Mind mapping tool          | latest     | [MindMaster](http://www.edrawsoft.cn/mindmaster) |
-| `Visio`       | Flowchart tool             | latest     | [Visio](https://www.microsoft.com/zh-cn/microsoft-365/visio/flowchart-software) |
-| `Apipost`     | API debugging tool         | latest     | [Apipost](https://www.apipost.cn/) |
-| `Mock.js`     | API mock testing           | latest     | [Mock.js](http://mockjs.com/) |
-| `Git`         | Version control            | latest     | [Git](https://git-scm.com/) |
-| `Codeup`      | Source code hosting        | latest     | [Codeup](https://codeup.aliyun.com) |
-| `Projex`      | DevOps process management  | latest     | [Projex](https://devops.aliyun.com/projex) |
-| `IDEA`        | Java IDE                   | 2022.1.3+  | [IntelliJ IDEA](https://www.jetbrains.com/idea/download) |
-| `Apache Maven` | Build tool                | 3.6.3      | [Maven](https://maven.apache.org/) |
-| `Docker Maven` | Maven Docker plugin      | 0.40.2     | [Docker Maven Plugin](https://dmp.fabric8.io/) |
-| `VS`          | C++ IDE                    | 2022       | [Visual Studio](https://learn.microsoft.com/en-us/visualstudio/releases/2022/release-notes) |
-| `Cmake`       | C++ cross-platform build   | latest     | [CMake](https://cmake.org/cmake/help/latest/index.html) |
-| `gtest`       | C++ testing framework      | 1.14.0     | [Google Test](https://github.com/google/googletest) |
-| `VS Code`     | Frontend development IDE   | latest     | [VS Code](https://code.visualstudio.com/Download) |
+# 后端技术栈（C++）
+
+- OAT++：现代化 Web 框架
+- MySQL Connector / Redis++ / MongoDB Driver
+- OpenSSL + JWT 安全模块
+- FastDFS 文件存储
+- YAML 配置解析、xlnt 报表导出
+- RocketMQ 消息中间件集成
+- ZXing 二维码/条形码生成
 
 
-### Development Environment
+# 环境依赖（Environment Requirements）
 
-| Dependency | Version | Notes |
-|-----------|---------|-------|
-| `Windows` | 10+ | Operating system |
-| `JDK` | 1.8.0_191+ | https://www.injdk.cn/ |
-| `NodeJS` | 20.15.0 | https://nodejs.org/zh-cn/ |
-| `NPM` | 8.19.2 | https://www.npmjs.com/ |
+# 开发工具推荐
 
+- IntelliJ IDEA、VS、VS Code、PowerDesigner、MindMaster、Axure、Apipost
+- Docker、Maven、CMake、Git、Jenkins 等构建与部署工具
 
-### Server Environment
+# 开发运行环境
 
-| Dependency   | Version   | Notes |
-|-------------|----------|-------|
-| `Anolis OS` | `8.6GA`  | [Anolis OS](https://openanolis.cn/anolisos) |
-| `Docker`    | latest   | [Docker](https://www.docker.com/) |
-| `MySQL`     | 8.0.20   | [MySQL](https://www.mysql.com/cn/) |
-| `Redis`     | 6.2.7    | [Redis](https://redis.io/) |
-| `Nacos`     | 2.1.0    | [Nacos](https://nacos.io/zh-cn/docs/quick-start-docker.html) |
-| `Sentinel`  | 1.8.4    | [Sentinel](https://github.com/alibaba/Sentinel/releases) |
-| `Seata`     | 1.5.1    | [Seata](https://github.com/seata/seata) |
-| `RocketMQ`  | 4.9.3    | [RocketMQ](https://rocketmq.apache.org/) |
-| `Nginx`     | latest   | [Nginx](https://nginx.org/en/) |
-| `FastDFS`   | V6.07    | [FastDFS](https://github.com/happyfish100/fastdfs/releases/tag/V6.07) |
-| `ELK`       | 7.6.2    | [ELK Stack](https://www.elastic.co/guide/en/elastic-stack/7.6/index.html) |
-| `MongoDB`   | 4.4.17   | [MongoDB](https://www.mongodb.com/try/download/community) |
-| `Jenkins`   | latest   | [Jenkins](https://www.jenkins.io/zh/doc/book/installing/) |
+| 环境项 | 推荐版本 |
+|--------|----------|
+| 操作系统 | Windows 10+ / WSL / Anolis OS 8.6 |
+| JDK     | 1.8.0_191+ |
+| Node.js | v20+ |
+| MySQL   | 8.0+ |
+| Redis   | 6.2+ |
+| Jenkins | latest |
+
+> 完整环境依赖请参考项目 `documents/` 目录中的安装文档。
 
 
-## Special Thanks
+# 特别致谢（Special Thanks）
 
-The development of `zero-one-10wms` would not have been possible without the support of open-source software and the community. Special thanks to the following projects and their maintainers:
+感谢以下开源项目提供的支持与灵感：
 
-- `spring`: https://github.com/spring-projects
-- `alibaba`: https://github.com/alibaba
-- `mybatis`: https://github.com/mybatis/mybatis-3.git
-- `vue`: https://github.com/vuejs
-- `oatpp`: https://github.com/oatpp/oatpp
+- [Spring](https://github.com/spring-projects)
+- [Alibaba 开源生态](https://github.com/alibaba)
+- [MyBatis](https://github.com/mybatis/mybatis-3)
+- [Vue.js](https://github.com/vuejs)
+- [Oat++](https://github.com/oatpp/oatpp)
 
-And many other open-source components and contributors who are not explicitly listed.
+以及无数未在此列出的开源贡献者 🙏
+
+

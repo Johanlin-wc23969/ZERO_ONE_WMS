@@ -44,7 +44,7 @@ zero-one-10wms
 
 # **软件技术栈（Tech Stack）**
 
-#端技术栈（Java）
+# 后端技术栈（Java）
 
 核心依赖包括：
 
@@ -55,10 +55,8 @@ zero-one-10wms
 - Swagger/Knife4j 接口文档
 - MapStruct、EasyExcel、Lombok 等开发加速工具
 
-🔗 [详细版本对照 & 官网链接见原文](https://github.com/alibaba/spring-cloud-alibaba/wiki/版本说明)
 
-
-#前端技术栈（Frontend）
+# 前端技术栈（Frontend）
 
 - Vue 3 + Composition API
 - Vue Router 4 + Pinia 状态管理
@@ -68,7 +66,7 @@ zero-one-10wms
 - wangEditor 富文本编辑、PDFObject PDF 预览
 - 支持打印、验证码、Vitest 测试框架等插件集成
 
----
+
 
 # 后端技术栈（C++）
 

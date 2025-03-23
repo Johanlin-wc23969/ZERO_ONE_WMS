@@ -8,7 +8,7 @@
 - [百度百科：仓库管理系统](https://baike.baidu.com/item/%E4%BB%93%E5%BA%93%E7%AE%A1%E7%90%86/9163356)
 
 
-# **项目简介（Project Overview）**
+## **项目简介（Project Overview）**
 
 **ZERO_ONE 智能仓储管理系统** 是一款面向现代供应链场景设计的 **仓库管理系统**，致力于帮助企业实现从仓储到配送全链路的库存可视化管理与订单履约优化。
 
@@ -22,14 +22,14 @@
 - 快速响应客户订单变更
 
 
-# **系统架构**
+## **系统架构**
 
 本系统基于 `Spring Cloud Alibaba` 微服务生态构建，后端采用 `MySQL` 进行数据持久化，前端基于 `Vue3 + Element Plus` 实现响应式界面。同时支持 `C++` 微服务模块集成，并通过 `Jenkins` 实现自动化 CI/CD 部署。
 
 ![系统架构图](./documents/00、preview-pic/architecture.jpg)
 
 
-# **项目结构（Project Structure）**
+## **项目结构（Project Structure）**
 
 ```bash
 zero-one-10wms
@@ -44,7 +44,7 @@ zero-one-10wms
 
 # **软件技术栈（Tech Stack）**
 
-# 后端技术栈（Java）
+## 后端技术栈（Java）
 
 核心依赖包括：
 
@@ -56,7 +56,7 @@ zero-one-10wms
 - MapStruct、EasyExcel、Lombok 等开发加速工具
 
 
-# 前端技术栈（Frontend）
+## 前端技术栈（Frontend）
 
 - Vue 3 + Composition API
 - Vue Router 4 + Pinia 状态管理
@@ -68,7 +68,7 @@ zero-one-10wms
 
 
 
-# 后端技术栈（C++）
+## 后端技术栈（C++）
 
 - OAT++：现代化 Web 框架
 - MySQL Connector / Redis++ / MongoDB Driver
@@ -81,12 +81,12 @@ zero-one-10wms
 
 # 环境依赖（Environment Requirements）
 
-# 开发工具推荐
+## 开发工具推荐
 
 - IntelliJ IDEA、VS、VS Code、PowerDesigner、MindMaster、Axure、Apipost
 - Docker、Maven、CMake、Git、Jenkins 等构建与部署工具
 
-# 开发运行环境
+## 开发运行环境
 
 | 环境项 | 推荐版本 |
 |--------|----------|
